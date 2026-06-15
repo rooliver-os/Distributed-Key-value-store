@@ -36,7 +36,7 @@ class JsonRpcServer:
         while True:
             caller_connection, caller_address = server_socket.accept()
 
-            # HM: Look how easy it is to create and initiate new threads in Python
+            # very easy to create and initiate these new threads in python
             # (the "daemon" flag means that when the main program exits, the "daemon" threads also exit)
             thread = threading.Thread(
                 target=self.handle_client,
