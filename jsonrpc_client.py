@@ -35,10 +35,10 @@ class JsonRpcClient:
 
         return data.get("result")
 
-    # HM: Now, here's where the magic happens. When you access an attribute or method in Python
-    # it falls back to this function if it cannot find it. See more at (https://www.pythonmorsels.com/getattr-vs-getattribute/)
+    # Now, here's where the magic happens. When you access an attribute or method in Python
+    # it falls back to this function if it cannot find it.
     def __getattr__(self, method_name):
-        # HM: Returns a newly made method that accepts a variable-length sequence of parameters
+        # Returns a newly made method that accepts a variable-length sequence of parameters
         # This method delegates the task to call()
         def method(*args):
             return self.call(method_name, list(args))
