@@ -133,9 +133,6 @@ def get(key, client_address):
             print(f"[Peer {my_port}] SECOND REPLICA {rep2} did not respond: {e}")
         print(f"[Peer {my_port}] All replicas failed for get({key})")
 
-# --------------------------
-# STEPS 3-5
-# --------------------------
 def ping():
     print(f"[Peer {my_port}] Tum-Tum")
     return True
@@ -193,9 +190,9 @@ def join():
             except Exception as e:
                 print(f"[Peer {my_port}] Error notifying peer {peer}: {e}")
 
-# --------------------------
-# Replication and Fault-Tolerance (from Step 5)
-# --------------------------
+# ------------------
+#REPLICATION AND FAULT TOLERANCE
+#--------------------
 def copyAll(destination):
     for key, value in data_table.items():
         try:
